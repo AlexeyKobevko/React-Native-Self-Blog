@@ -7,7 +7,7 @@ export const PostList = ({ data = [], onOpen }) => {
   if (!data.length) {
     return (
       <View style={styles.wrapper}>
-        <Text style={styles.noItems}>Пстов пока нет</Text>
+        <Text style={styles.noItems}>Постов пока нет</Text>
       </View>
     );
   }
