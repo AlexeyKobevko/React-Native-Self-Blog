@@ -37,17 +37,17 @@ export const addPost = post => async dispatch => {
       to: newPath,
       from: post.img,
     });
+
+    const payload = { ...post, img: newPath };
+    const id = await DB.createPost(payload);
+
+    payload.id = id;
+
+    dispatch({
+      type: ADD_POST,
+      payload,
+    });
   } catch (e) {
     console.log('Error :', e);
   }
-
-  const payload = { ...post, img: newPath };
-  const id = await DB.createPost(payload);
-
-  payload.id = id;
-
-  dispatch({
-    type: ADD_POST,
-    payload,
-  });
 };
